@@ -7,7 +7,7 @@ metadata:
   labels:
     app: "ticketsystemapp"
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: "ticketsystemapp"
@@ -17,13 +17,13 @@ spec:
         app: "ticketsystemapp"
     spec:
       containers:
-      - name: "ticketsytem-1"
-        image: "gcr.io/cap1-339903/github.com/1234567ms/ticketsytem"
+      - name: "ticketsytem-sha256-1"
+        image: "gcr.io/cap1-339903/github.com/1234567ms/ticketsytem@sha256:adb9b2af91a2da405021c1ec593db81893c240feb5f1af43b2414c1320a6b082"
 ---
 apiVersion: "autoscaling/v2beta1"
 kind: "HorizontalPodAutoscaler"
 metadata:
-  name: "ticketsystemapp-hpa-efq3"
+  name: "ticketsystemapp-hpa-koxe"
   namespace: "default"
   labels:
     app: "ticketsystemapp"
@@ -39,3 +39,4 @@ spec:
     resource:
       name: "cpu"
       targetAverageUtilization: 80
+
